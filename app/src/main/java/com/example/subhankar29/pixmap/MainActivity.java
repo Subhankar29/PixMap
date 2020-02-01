@@ -2,12 +2,9 @@ package com.example.subhankar29.pixmap;
 
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
@@ -20,14 +17,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
+
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView mImageView;
     Button mChooseBtn;
-    Button edit;
     Bitmap bitmap;
 
     private static final int IMAGE_PICK_CODE = 100;
@@ -86,23 +81,13 @@ public class MainActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE){
             Uri uri = data.getData();
             Toast.makeText(this, uri.toString(), Toast.LENGTH_LONG);
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                //mImageView.setImageBitmap(bitmap);
-               /* Intent intent =new Intent();
-                intent.setClass(MainActivity.this, ImageEditing.class);
-                intent.putExtra("Bitmap", bitmap);
-                startActivity(intent);
-                */
+
+               // bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 Intent intent = new Intent(this, ImageEditing.class);
                 intent.putExtra("ImageUri", uri.toString());
                 startActivity(intent);
                 finish();
-               // mImageView.setImageURI(data.getData());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-           // mImageView.setImageURI(data.getData());
+
 
         }
     }
