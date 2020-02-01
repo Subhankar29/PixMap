@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PixMap</string>
+    <string name="dimen">13</string>
+    <string name="fVertical">FLIP VERTICAL</string>
+    <string name="fHORIZONTAL">FLIP HORIZONTAL</string>
+    <string name="opacity">OPACITY</string>
+    <string name="text">ADD TEXT</string>
+    <string name="save">SAVE</string>
+    <string name="logo">ADD LOGO</string>
+    <string name="chooseImage">CHOOSE IMAGE</string>
+</resources>
